@@ -178,6 +178,7 @@ import math
 #
 # --------------------------------------------------------------------------------------
 #
+
 # for x in reversed(range(0,11)):
 #     print(x)
 # print("Happy new YEAR!")
@@ -202,3 +203,50 @@ import math
 # print("time's up!")
 #
 # -----------------------------------------------------------------------------------------
+# rows = int(input("Enter number of rows: "))
+# columns = int(input("ENter the # of columns: "))
+# symbol = input("Enter a symbol to use: ")
+#
+# for y in range(rows):
+#     for x in range(columns):
+#          print(symbol, end="*")
+#     print()
+# -------------------------------------------------------------------------------------------
+
+# fruits = {"apple", "orange", "banana", "coconut"}
+# #
+#
+# # #
+# # # fruits.append("pineapple")
+# # # print(fruits)
+# # # fruits.remove("apple")
+# # # print(fruits)
+# # # fruits.insert(0,"pineapple")
+# # # print(fruits)
+# # print(dir(fruits))
+#
+# ----------------------------------------------------------------------------------------
+
+foods = []
+prices = []
+total = 0
+
+while True:
+    food = input("Enter a food to buy (q to quit): ")
+    if food.lower() == "q":
+        break
+    else:
+        price = float(input(f"Enter the price of a {food}: $ "))
+        foods.append(food)
+        prices.append(price)
+list_len = len(foods)
+count = 0
+print("-----YOUR SHOPPING CART------")
+for food in foods:
+    print(f"Article n°{count} is {food}, price is ${prices[count]}")
+    count+=1
+print()
+print("------TOTAL-----")
+for price in prices:
+    total += price
+print(f"Your total is ${total:^} ")
