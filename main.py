@@ -226,27 +226,88 @@ import math
 # # print(dir(fruits))
 #
 # ----------------------------------------------------------------------------------------
-
-foods = []
-prices = []
-total = 0
-
-while True:
-    food = input("Enter a food to buy (q to quit): ")
-    if food.lower() == "q":
-        break
-    else:
-        price = float(input(f"Enter the price of a {food}: $ "))
-        foods.append(food)
-        prices.append(price)
-list_len = len(foods)
-count = 0
-print("-----YOUR SHOPPING CART------")
-for food in foods:
-    print(f"Article n°{count} is {food}, price is ${prices[count]}")
-    count+=1
-print()
-print("------TOTAL-----")
-for price in prices:
-    total += price
-print(f"Your total is ${total:^} ")
+#
+# foods = []
+# prices = []
+# total = 0
+#
+# while True:
+#     food = input("Enter a food to buy (q to quit): ")
+#     if food.lower() == "q":
+#         break
+#     else:
+#         price = float(input(f"Enter the price of a {food}: $ "))
+#         foods.append(food)
+#         prices.append(price)
+# list_len = len(foods)
+# count = 0
+# print("-----YOUR SHOPPING CART------")
+# for food in foods:
+#     print(f"Article n°{count} is {food}, price is ${prices[count]}")
+#     count+=1
+# print()
+# print("------TOTAL-----")
+# for price in prices:
+#     total += price
+# print(f"Your total is ${total:^} ")
+# ---------------------------------------------------------------------------------
+# fruits = ["banana", "orange", "coconut"]
+# vegetables = ["celery", "carrots", "potatoes"]
+# meats =["chicken", "fish","turkey"]
+#
+# groceries = [fruits, vegetables, meats]
+# print(groceries)
+# -----------------------------------------------------------------------------------
+# num_pad = ((1,2,3),(4,5,6),(7,8,9),("*", 0, "#"))
+# for row in num_pad:
+#     for num in row:
+#         print(num, end=" ")
+#     print()
+# -------------------------------------------------------------------------------------
+# RED = "\033[91m"
+# GREEN = "\033[92m"
+# CYAN = "\033[96m"
+# YELLOW = "\033[93m"
+# MAGENTA = "\033[95m"
+# RESET = "\033[0m"  # Resets the color to default
+# questions = (("Quanti giri fa una boccia"),
+#              ("Se ocane ha un cane, di chi è il cane"),
+#              ("Apelle figlio di apollo fece una palla di pelle di..."),
+#              ("La smantequila de la.."),
+#              ("Sono talmente sgravato che mi chiamavano..."))
+# options = (("A. 12", "B. 112", "C. Finchè non si ferma","D. Ma io che cazzo ne so scusi", "E. la cipolla"),
+#            ("A. Del signor ocane", "B. Mio, sono il signor ocane", "C. Dell'immenso","D. Ma io che cazzo ne so scusi", "E. 42"),
+#            ("A. cashemere", "B. di pelle", "C. Sì","D. Ma io che cazzo ne so scusi", "E.eeeee macarena"),
+#            ("A. muerte", "B. soy un chico muy loco", "C. FOzza roma","D. Ma io che cazzo ne so scusi", "E. benvenutiragazzieragazzeinquestonuvovideo"),
+#            ("A. l'imbarazzante","B. Slork","C. la muerte","D. Kevin methnick","E. Omobofo"))
+# answers = (("D"),("C"),("C"),("A"),("B"))
+# possible_answers = (("A"),("B"),("C"),("D"),("E"))
+# question_num = 0
+# x  = 0
+# y = 0
+# score = 0
+# # import pdb
+# # pdb.set_trace()
+# print(f"{MAGENTA} Benvenuto nel python quiz game! {RESET}")
+# for question in questions:
+#     print(f"{YELLOW}Domanda n° {question_num}. {questions[question_num]}{RESET}"udo
+#     print()
+#     for option in options:
+#         print(f"{options[x][y]}")
+#         y+=1
+#     print()
+#     user_guess = input("Enter a letter (A-E): ").upper()
+#
+#     if(user_guess == answers[question_num]):
+#         print()
+#         print(f"{GREEN}-----You guessed right-----{RESET}")
+#         score +=1
+#     else:
+#         print(f"{RED}----Wrong, right answer was {answers[question_num]}-----{RESET}")
+#     y = 0
+#     x += 1
+#     question_num+=1
+#     print()
+# print(f"{GREEN}----------FINALE SCORE----------{RESET}")
+# print(f"Your finale score is {score:}")
+# ---------------------------------------------------------------------------------------------------------
