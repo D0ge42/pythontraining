@@ -420,8 +420,256 @@ import math
 #     return total
 # print(add(18,1,2,31,312,3,123,12,321))
 # ------------------------------------------------------------------------------------------------------------------------------
-def print_address(**kwargs):
-    for value in kwargs.values():
-        print(value)
+# def print_address(**kwargs):
+#     for value in kwargs.values():
+#         print(value)
+#
+# print_address(street = "123 fake st.", city= "Derni", state="dindorni")
+# ---------------------------------------------------------------------------------------------------------------------------------
+# numbers = [1,2,3,4,5]
+#
+# for item in numbers:
+#     print(item)
+# ------------------------------------------------------------------------------------------------------------------------------------
+# word = "derni"
+#
+# letter = input("Guess a letter in the secret word: ").lower()
+#
+# if(letter in word):
+#     print(f"Yes, {letter} is present in the given word")
+# else:
+#     print(f"Sorry, {letter} is not present in the given word")
+# ----------------------------------------------------------------------------------------------------------------------------------------
+# grades = {"Doge":2, "Cavi":3, "Buddy":4, "Musturu":5}
+#
+# student = input("Enter the name of a student: ")
+#
+# if student in grades:
+#     print(f"{student}'s grade is {grades[student]}")
+# else:
+#     print(f"{student} was not found")
+# -----------------------------------------------------------------------------------------------------------------------------------------
 
-print_address(street = "123 fake st.", city= "Derni", state="dindorni")
+# email = input("Enter your email address: ")
+#
+# if "@" in email and "." in email:
+#     print("Email is valid")
+# elif "@" in email and "." not in email:
+#     print("Email is not valid. '.' is missing")
+# elif "@" not in email and "." in email:
+#     print("Email not valid. '@' is missing")
+# else:
+#     print("Email not valid.")
+# --------------------------------------------------------------------------------------------------------------------------------------------
+# doubles = [x * 2for x in range(1, 11)]
+# squares = [x * x for x in range (1, 11)]
+# fruits = ["orange", "apple", "banana", "coconut"]
+# fruits_chars = [fruit[0] for fruit in fruits ]
+# print(doubles)
+# print(squares)
+# print(fruits_chars)
+# numbers = [1, -2, 3, -4, 5, -6, 8]
+# positive_nums = [num for num in numbers if num >= 0]
+# negative_nums = [num for num in numbers if num < 0]
+# even_nums = [num for num in numbers if num %2 == 0]
+# print(positive_nums)
+# print(negative_nums)
+# print(even_nums)
+#
+# grades = [85, 42, 79, 90, 56, 61, 30]
+#
+# passing_grades = [grade for grade in grades if grade >= 60]
+#
+# print(passing_grades)
+#---------------------------------------------------------------------------------------------------------------------------------------------------
+# def day_of_week(day):
+#     match day:
+#         case "lunedì":
+#             return True
+#         case 2:
+#             return "martedì"
+#         case _:
+#             return "not a valid day"
+# print(day_of_week("lunedì"))
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# import math as m
+#
+# print(m.pi)
+# -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+# balance = 0
+# is_running = True
+# option_list = ["1.Show Balance", "2.Deposit", "3.Withdraw", "4.EXIT"]
+# option_next_list = ["1.Yes", "2.Exit"]
+# def show_balance():
+#     print(f"Your balance is ${balance:.2f}💰")
+#
+#
+# def deposit():
+#     money = float(input(f"How many money would you like to deposit? "))
+#     return money
+#
+# def withdraw():
+#     money_withdraw = float(input(f"How many money would you like to withdraw? "))
+#     return money_withdraw
+#
+# while is_running:
+#     print("----BANKING PROGRAM-----")
+#     print("---CHOOSE AN OPTION---")
+#     for option in option_list:
+#         print(f"{option}")
+#     choice = input("Enter your choice (1-4): ")
+#     match choice:
+#         case "1":
+#             show_balance()
+#         case "2":
+#             amount = deposit()
+#             if(not amount):
+#                 print("You cannot deposit 0 or less $")
+#             else:
+#                 balance += amount
+#                 print("Your bank balance has been updated 💸 ")
+#         case "3":
+#             amount = withdraw()
+#             if balance - amount >= 0:
+#                 balance -= amount
+#                 print("Your bank balance has been updated")
+#             else:
+#                 print(f"You do not have that many money. Your current balance is ${balance:.2f}")
+#         case "4":
+#             break
+#     next = input("Do you want to do something else? (Yes/no) ").lower()
+#     match next:
+#         case "yes"| "y":
+#             continue
+#         case "no" | "n":
+#             break
+# print("------THANKS AND GOODBYE :)------")
+# ----------------------------------------------------------------------------------------------------------------
+import random
+import time
+
+# Color definitions using ANSI escape codes
+BLACK = "\033[30m"
+RED = "\033[31m"
+GREEN = "\033[32m"
+YELLOW = "\033[33m"
+BLUE = "\033[34m"
+MAGENTA = "\033[35m"
+CYAN = "\033[36m"
+WHITE = "\033[37m"
+
+BRIGHT_BLACK = "\033[90m"
+BRIGHT_RED = "\033[91m"
+BRIGHT_GREEN = "\033[92m"
+BRIGHT_YELLOW = "\033[93m"
+BRIGHT_BLUE = "\033[94m"
+BRIGHT_MAGENTA = "\033[95m"
+BRIGHT_CYAN = "\033[96m"
+BRIGHT_WHITE = "\033[97m"
+
+# Reset color
+RESET = "\033[0m"
+
+balance = 100
+cost = 10
+emojis = ["🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩",
+          "🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩","🍎","🥭","🍑","🍓","🥝","🌶️","🍆","🌽","🥩"]
+list = [f"{BLUE}1.Play", f"2.Show Balance", "3.Withdraw.",f"4.Exit{RESET}"]
+
+
+def spin_row():
+    random.shuffle(emojis)
+    first_row = [emojis[0],emojis[1],emojis[2]]
+    second_row = [emojis[3],emojis[4],emojis[5]]
+    third_row = [emojis[6],emojis[7],emojis[8]]
+    complete = [first_row,
+                second_row,
+                third_row]
+    return complete
+
+def show_balance():
+    return balance
+
+def withdraw():
+    money = float(input("How many money would you like to withdraw? "))
+    return money
+
+def check_match(board):
+    if ((board[0][0] == board[0][1] and board[0][0] == board[0][2]) or 
+        (board[1][0] == board[1][1] and board[1][0] == board[1][2]) or 
+        (board[2][0] == board[2][1] and board[2][0] == board[2][2])):
+        return True
+    else:
+        return False
+
+def print_comb(comb):
+    for items in comb:
+        print(f"{YELLOW}---{items}---{RESET}", end=" ")
+
+def deposit(amount):
+    return amount
+
+
+
+while True:
+
+    if balance < 10:
+        print("You don't have enough money to gamble!")
+        choice = input("Do you want to deposit more money? (Y/N): ").lower()
+        match choice:
+            case "y":
+                money = float(input("How many dollars?: "))
+                balance += deposit(money)
+                print(f"{BRIGHT_BLUE}You've successfully deposited ${money:.2f}. Your balance is now ${balance:.2f}{RESET}")
+            case "n":
+                break
+    else:
+        print(f"{MAGENTA}---WELCOME TO LAS DOGES---{RESET}")
+        print(f"{YELLOW}CURRENT BALANCE ${balance:.2f}{RESET}")
+        print(f"--{CYAN}CHOOSE AN OPTION{RESET}--")
+        for item in list:
+            print(item)
+        choose = input("Enter your choice: ")
+        match choose:
+            case "1":
+                balance -= cost
+                print("Spinning...")
+                for x in range(1,2):
+                    time.sleep(1)
+                complete = spin_row()
+                list1 = complete[0]
+                list2 = complete[1]
+                list3 = complete[2]
+                print_comb(list1)
+                print()
+                print_comb(list2)
+                print()
+                print_comb(list3)
+                print()
+                amount = random.randint(0,100)
+                if check_match(complete) == 1:
+                    print(f"{GREEN}CONGRATZ!!! You won ${amount}{RESET}")
+                    balance += amount
+                    print("-------------------")
+                    print(f"Your balance is ${balance}")
+            case "2":
+                print(f"{MAGENTA}*******************************{RESET}")
+                print(f"    YOUR BALANCE IS {BRIGHT_GREEN}${balance:.2f}{RESET}     ")
+                print(f"{MAGENTA}*******************************{RESET}")
+            case "3":
+                money = withdraw()
+                balance -= money
+                print(f"{BRIGHT_BLUE}You've successfully withdrawn ${money:.2f} and your balance is {balance:.2f}{RESET}")
+            case "4":
+                break
