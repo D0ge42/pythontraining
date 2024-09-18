@@ -311,3 +311,117 @@ import math
 # print(f"{GREEN}----------FINALE SCORE----------{RESET}")
 # print(f"Your finale score is {score:}")
 # ---------------------------------------------------------------------------------------------------------
+
+# capitals = {"USA":"Washington D.C.", "India": "New Delhi", "China":"Beijing","Italy":"Rome"}
+#
+# print(capitals.get("USA"))
+#
+# if(capitals.get("India")):
+#     print("Capital exists")
+# else:
+#     print("Capital doesn't exists")
+#
+# capitals.update({"Germany":"Berlin"})
+# capitals.update({"USA": "Detroit"})
+#
+# for key in capitals.keys():
+#     print(key)
+# for value in capitals.values():
+#     print(value)
+# for key, value in capitals.items():
+#     print(f"{key}:{value}")
+# -------------------------------------------------------------------------------------------------------------
+#
+# menu = {"pizza": 3.00, "popcorn":2.00, "fries":3.00, "soda":3.00}
+#
+# cart = []
+# total = 0
+# print("------MENU------")
+# for key, value in menu.items():
+#     print(f"{key:10}: ${value:.2f}")
+# print("-------------------")
+#
+# while True:
+#     food = input("Select an item (q to quit): ").lower()
+#     if food == "q":
+#         break
+#     elif menu.get(food) is not None:
+#         cart.append(food)
+# for food in cart:
+#     total += menu.get(food)
+#     print(food, end=" ")
+# print()
+# print("-----TOTAL---------")
+# print(f"Total is: ${total:.2f}")
+# ----------------------------------------------------------------------------------------------------------------
+# import random
+# options = ["rock", "paper", "scissors", "carta", "forbice"]
+# #print(random.choice(options))
+# random.shuffle(options)
+# print(options)
+# ------------------------------------------------------------------------------------------------------------------
+#
+# import random
+# options = ("rock", "paper", "scissors")
+#
+# player = None
+# answer = None
+# computer = random.choice(options)
+#
+# while True:
+#     if(answer == "n"):
+#         break
+#     else:
+#         computer = random.choice(options)
+#         print("-------------ROCK PAPER SCISSORS GAME!-----------------")
+#         player = input("Choose between rock, paper and scissors: ")
+#         while player not in options:
+#             player = input("Choose a valid input: ")
+#             if(player in options):
+#                 break
+#         if((player == "rock" and computer == "scissors") or (player == "scissors" and computer == "paper") or (player =="paper" and computer == "rock")):
+#             print(f"Computer choosed {computer}, You won!")
+#             print("---------------------------------------")
+#         elif(player == computer):
+#             print(f"Draw!, you  choosed {player} and computer choosed {computer} ")
+#             print("---------------------------------------")
+#         else:
+#             print(f"You lost! Computer choice was {computer} and your was {player}")
+#             print("---------------------------------------")
+#         answer = input("Do you wanna keep playing? (Y/N): ").lower()
+#         print()
+# ------------------------------------------------------------------------------------------------------------------------
+#
+# def add_sum(num1, num2):
+#     return num1 + num2
+#
+# print(add_sum(4,9))
+# --------------------------------------------------------------------------------------------------------------------------
+# def net_price(list_price, discount = 0, tax = 0.05):
+#     return list_price * (1 - discount) * (1 + tax)
+#
+# print(net_price(300, 0.1))
+# ---------------------------------------------------------------------------------------------------------------------------
+# import time
+#
+# def count(end, start=0):
+#     for x in range(start, end+1):
+#         print(x)
+#         time.sleep(1)
+#     print("DONE!")
+#
+# count(10)
+# # -----------------------------------------------------------------------------------------------------------------------------
+#
+# def add(*args):
+#     total = 0
+#     for arg in args:
+#         total += arg
+#     return total
+# print(add(18,1,2,31,312,3,123,12,321))
+# ------------------------------------------------------------------------------------------------------------------------------
+def print_address(**kwargs):
+    for value in kwargs.values():
+        print(value)
+
+print_address(street = "123 fake st.", city= "Derni", state="dindorni")
