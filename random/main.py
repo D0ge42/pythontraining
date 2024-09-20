@@ -704,108 +704,112 @@ RESET = "\033[0m"
 
 #Hangman in python
 
-# index = 0
-# guessed = []
-# words = ("python","laser","warrior", "car", "keyboard")
-# word_to_guess = random.choice(words)
-# guesses = 0
-# ascii_art = {
-#     0: (),
-#     1: (" o ",
-#         "   ",
-#         "   "),
-#     2: (" o ",
-#         " | ",
-#         "   "),
-#     3: (" o ",
-#         "/| ",
-#         "   "),
-#     4: (" o ",
-#         "/|\\",
-#         "   "),
-#     5: (" o ",
-#         "/|\\",
-#         "/  "),
-#     6: (" o ",
-#         "/|\\",
-#         "/ \\"),
-#     7: (" |  ",
-#         " o ",
-#         "/|\\",
-#         "/ \\")
-# }
-#
-# def print_ascii_art(ascii_art, key):
-#     for item in ascii_art[key]:
-#         print(item)
-#
-# def list_to_string(lista, string):
-#     for item in lista:
-#         string+=item
-#     return string
-#
-# def initialize_list(guess_list,string):
-#     for letter in string:
-#         guess_list.append("")
-#
-# initialize_list(guessed,word_to_guess)
-#
-# def find_indexes(str,x):
-#     indices = [index for index, char in enumerate(str) if char == x]
-#     for item in indices:
-#         item = int(item)
-#     return indices
-#
-# lista = find_indexes("warrior","r")
-#
-# def fill_str(str,lista,y):
-#     str = list(str)
-#     for item in lista:
-#         str[item] = y
-#     str = ''.join(str)
-#     return str
-#
-# empty = ""
-# print(fill_str(empty,lista,"r"))
-#
-# def better_list(guessed):
-#     empty_string = ""
-#     for item in guessed:
-#         empty_string += "-"
-#     return empty_string
-#
-# strong = better_list(guessed)
-#
-# while True:
-#     print()
-#     letter = input("Enter a letter: ").lower()
-#     if letter.isdigit():
-#         print("Letter was not valid")
-#     if len(letter) > 1:
-#         print("Only one letter allowed")
-#     else:
-#         if letter in word_to_guess:
-#             index_letter = find_indexes(word_to_guess,letter)
-#             strong = list(strong)
-#             guessed[index_letter] = letter
-#             strong[index_letter] = letter
-#             strong = ''.join(strong)
-#             print(f"The letter {letter} is in the word to guess! ")
-#             print(strong)
-#         else:
-#             print(f"The letter {letter} could not be found in the hidden word! ")
-#             index += 1
-#             if index >=7:
-#                 print_ascii_art(ascii_art,index)
-#                 print(f"{RED}-----YOU LOST-----{RESET}")
-#                 choice = input("Do you wanna play again?(Y/N): ")
-#                 match choice:
-#                     case "y":
-#                         index = 0
-#                         word_to_guess = random.choice(words)
-#                         guessed = []
-#                     case "n":
-#                         break
-#             else:
-#                 print_ascii_art(ascii_art,index)
+index = 0
+guessed = []
+words = ("python","laser","warrior", "car", "keyboard","ramarromarrone","randomwords")
+word_to_guess = random.choice(words)
+guesses = 0
+ascii_art = {
+    0: (),
+    1: (" o ",
+        "   ",
+        "   "),
+    2: (" o ",
+        " | ",
+        "   "),
+    3: (" o ",
+        "/| ",
+        "   "),
+    4: (" o ",
+        "/|\\",
+        "   "),
+    5: (" o ",
+        "/|\\",
+        "/  "),
+    6: (" o ",
+        "/|\\",
+        "/ \\"),
+    7: (" |  ",
+        " o ",
+        "/|\\",
+        "/ \\")
+}
 
+def print_ascii_art(ascii_art, key):
+    for item in ascii_art[key]:
+        print(item)
+
+def list_to_string(lista, string):
+    for item in lista:
+        string+=item
+    return string
+
+def initialize_list(guess_list,string):
+    for letter in string:
+        guess_list.append("")
+
+initialize_list(guessed,word_to_guess)
+
+def find_indexes(str,x):
+    indices = [index for index, char in enumerate(str) if char == x]
+    for item in indices:
+        item = int(item)
+    return indices
+
+
+def better_list(guessed):
+    empty_string = ""
+    for item in guessed:
+        empty_string += "-"
+    return empty_string
+
+strong = better_list(guessed)
+
+print(word_to_guess)
+while True:
+    print()
+    if strong == word_to_guess:
+        print(f"{GREEN}---CONGRATZ!!! YOU FOUND THE HIDDEN WORD!---{RESET}")
+        choice = input("Do you wanna play again?(Y/N): ")
+        match choice:
+            case "y":
+                index = 0
+                guessed = []
+                word_to_guess = random.choice(words)
+                initialize_list(guessed, word_to_guess)
+                strong = ""
+                strong = better_list(guessed)
+            case "n":
+                break
+    letter = input("Enter a letter: ").lower()
+    if letter.isdigit():
+        print("Letter was not valid")
+    if len(letter) > 1:
+        print("Only one letter allowed")
+    else:
+        if letter in word_to_guess:
+            index_letter = find_indexes(word_to_guess,letter)
+            strong = list(strong)
+            for indexes in index_letter:
+                strong[indexes] = letter
+            # strong[index_letter] = letter
+            strong = ''.join(strong)
+            print(f"The letter {letter} is in the word to guess! ")
+            print(strong)
+        else:
+            print(f"The letter {letter} could not be found in the hidden word! ")
+            index += 1
+            if index >=7:
+                print_ascii_art(ascii_art,index)
+                print(f"{RED}-----YOU LOST-----{RESET}")
+                choice = input("Do you wanna play again?(Y/N): ")
+                match choice:
+                    case "y":
+                        index = 0
+                        word_to_guess = random.choice(words)
+                        guessed = []
+                        strong = better_list(guessed)
+                    case "n":
+                        break
+            else:
+                print_ascii_art(ascii_art,index)
