@@ -574,4 +574,64 @@ import math
 #     case "no" | "n":
 #         print("Goodbye!")
 #------------------------------------------------------------------------------------------------------------------------------------------
+# from car import Car
+#
+# car1 = Car("Ferrari", "2024","Red",False)
+# car2 = Car("Tesla","2025","blue",False)
+#
+# print(car2.model)
+# print(car2.year)
+# print(car2.color)
+# print(car1.for_sale)
+# car1.drive()
+# class Student:
+#
+#     class_year = 2024
+#     num_students = 0
+#
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#         Student.num_students+=1
+#
+# student1 = Student("Spongebob", 30)
+# student2 = Student("Patrick", 35)
+# student2 = Student("Mr.Plancton", 35)
+# student2 = Student("Erpup1", 35)
+# student2 = Student("Patrick", 35)
+#
+# print(student1.name)
+# print(student2.age)
+# print(student1.class_year)
+# print(student2.class_year)
+# print(Student.class_year) #Usually accessed by class Name
+# print(Student.num_students)
+# -----------------------------------------------------------------------------------------------------------------------------------------
+class Animal:
+    def __init__(self, name):
+        self.name=name
+        self.is_alive = True
 
+    def eat(self):
+        print(f"{self.name} is eating")
+
+    def sleep(self):
+        print(f"{self.name} is sleeping")
+
+class Dog(Animal):
+    def speak(self):
+        print("WOOF!")
+class Cat(Animal):
+          pass
+class Mouse(Animal):
+        pass
+
+dog = Dog("Sheela")
+cat = Cat("Zuya")
+mouse = Mouse("Topenzo")
+
+print(dog.name)
+print(dog.is_alive)
+dog.eat()
+dog.sleep()
+dog.speak()
