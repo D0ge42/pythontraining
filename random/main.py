@@ -607,31 +607,442 @@ import math
 # print(Student.class_year) #Usually accessed by class Name
 # print(Student.num_students)
 # -----------------------------------------------------------------------------------------------------------------------------------------
-class Animal:
-    def __init__(self, name):
-        self.name=name
-        self.is_alive = True
+# class Animal:
+#     def __init__(self, name):
+#         self.name=name
+#         self.is_alive = True
+#
+#     def eat(self):
+#         print(f"{self.name} is eating")
+#
+#     def sleep(self):
+#         print(f"{self.name} is sleeping")
+#
+# class Dog(Animal):
+#     def speak(self):
+#         print("WOOF!")
+# class Cat(Animal):
+#           pass
+# class Mouse(Animal):
+#         pass
+#
+# dog = Dog("Sheela")
+# cat = Cat("Zuya")
+# mouse = Mouse("Topenzo")
+#
+# print(dog.name)
+# print(dog.is_alive)
+# dog.eat()
+# dog.sleep()
+# dog.speak()
+# -----------------------------------------------------------------------------------------------------------------------------------------
+# class Animal:
+#
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def eat(self):
+#         print(f"{self.name} is eating")
+#
+# class Prey(Animal):
+#     def flee(self):
+#         print(f"This {self.name} is fleeing")
+#
+# class Predator(Animal):
+#     def hunt(self):
+#         print(f"This animal is hunting")
+#
+# class Rabbit(Prey):
+#     pass
+#
+# class Hawk(Predator):
+#     pass
+#
+# class Fish(Prey, Predator):
+#     pass  
+#
+# rabbit = Rabbit("Bugs")
+#
+# hawk = Hawk("Tony")
+#
+# fish = Fish("Nemo")
+#
+# rabbit.eat()
+# --------------------------------------------------------------------------------
 
-    def eat(self):
-        print(f"{self.name} is eating")
+#super() = Function used in a child class to call methods from a parent class(superclass)
+# Allows you to extend the functionality of the inherited methods
+# class Shape:
+#     def __init__(self, color, is_filled):
+#         self.color = color
+#         self.is_filled = is_filled
+#
+#     def describe(self):
+#         print(f"It is {self.color} and {'filled' if self.is_filled else 'not filled'}")
+#
+# class Circle(Shape):
+#     def __init__(self, color, is_filled, radius):
+#         super().__init__(color, is_filled)
+#         self.radius = radius
+#
+#     def describe(self):
+#         print(f"The circle as an area of {3.14 * self.radius * self.radius}cm^2")
+#         super().describe()
+#
+# class Square(Shape):
+#     def __init__(self, color, is_filled, radius):
+#         super().__init__(color, is_filled)
+#         self.width = width
+#
+# class Triangle(Shape):
+#     def __init__(self, color, is_filled, radius):
+#         super().__init__(color, is_filled)
+#         self.height = height
+#         self.width = width
+#
+# circle = Circle("red",True, radius=5)
+# print(circle.describe())
+# print(circle.color)
+# print(circle.is_filled)
+# print(f"{circle.radius}cm")
 
-    def sleep(self):
-        print(f"{self.name} is sleeping")
+# class Furniture:
+#     def __init__(self,name,color, material, width, height):
+#         self.name = name
+#         self.color = color
+#         self.material = material
+#         self.width = width
+#         self.height = height
+#
+#     def describe(self):
+#         print(f"Furniture name is: {self.name}")
+#
+# class Window(Furniture):
+#     def __init__(self,name,color, material, width, height):
+#         super().__init__(name,color, material, width, height)
+#
+#     def describe(self):
+#         super().describe()
+#         print(f"{self.color} and made out of {self.material}. It is {self.width}cm large and its height is {self.height}")
+#
+# window = Window("window","red","wood and glass","40cm","80cm")
+# print(window.color)
+# print(window.describe())
+#
 
-class Dog(Animal):
-    def speak(self):
-        print("WOOF!")
-class Cat(Animal):
-          pass
-class Mouse(Animal):
-        pass
+# --------------------------------------------------------------------------------------
 
-dog = Dog("Sheela")
-cat = Cat("Zuya")
-mouse = Mouse("Topenzo")
+# from abc import ABC, abstractmethod
+#
+# class Shape:
+#
+#     @abstractmethod
+#     def area(self):
+#         pass
+#
+# class Circle(Shape):
+#     def __init__(self, radius):
+#         self.radius = radius
+#
+#     def area(self):
+#         return 3.14 * self.radius ** 2
+#
+# class Square(Shape):
+#     def __init__(self, side):
+#         self.side = side
+#
+#     def area(self):
+#         return self.side ** 2
+#
+# class Triangle(Shape):
+#     def __init__(self, base, height):
+#         self.base = base
+#         self.height = height
+#
+#     def area(self):
+#         return (self.base * self.height)/2
+#
+# class Pizza(Circle):
+#     def __init__(self, topping, radius):
+#         super().__init__(radius)
+#         self.topping = topping
+#
+#
+# shapes = [Circle(4),Square(5),Triangle(6,7), Pizza("Margherita", 5)]
+#
+# for shape in shapes:
+#     print(f" {shape.area()}")
+# ------------------------------------------------------------------------------
+#"Duck tipying" = Another way to achieve polymophism besides inheritance.
+# Object must have the minimum necessary attributes/methods.
+#"If it looks like a duck and quacks like a duck, it must be a duck"
 
-print(dog.name)
-print(dog.is_alive)
-dog.eat()
-dog.sleep()
-dog.speak()
+# class Animal:
+#     alive = True
+#
+# class Dog(Animal):
+#     def speak(self):
+#         print("Woof!")
+#
+# class Cat(Animal):
+#     def speak(self):
+#         print("Miao")
+#
+# class Car:
+#
+#     alive = False
+#     def speak(self):
+#         print("Honk!")
+#
+# animals = [Dog(), Cat(), Car()]
+#
+# for animal in animals:
+#     animal.speak()
+#     print(animal.alive)
+
+# --------------------------------------------------------------------------------
+
+#static methods = best for utility functions that do not need access to class data.
+#Instance methods = Best for operations on instances of the class (objects)
+
+# class Employee:
+#
+#     def __init__(self, name, position):
+#         self.name = name
+#         self.position = position
+#
+#     def get_info(self):
+#         return f"{self.name} = {self.position}"
+#
+#     @staticmethod
+#     def is_valid_position(position):
+#         valid_positions = ["Manager", "Cashier", "Cook", "Janitor"]
+#         return position in valid_positions
+#
+#
+#
+# employee1 = Employee("Eugene", "Manager")
+# employee2 = Employee("Squidward", "Cashier")
+# employee3 = Employee("Spongebob", "Cook")
+#
+# print(Employee.is_valid_position("Cook"))
+#
+# print(employee1.get_info())
+# print(employee2.get_info())
+# print(employee3.get_info())
+
+# --------------------------------------------------------------------------------
+#CLass methods = Allow operations related to the class itself.
+                 #Takes (cls) as first parameter, which represents the class itself
+#Instance method = Best for operations on instances of the class(objects)
+# Static methods = Best for utility functions that do not need access to class data
+# #class methods = Best for class-levels data or require access to class itself.
+# class Student:
+#
+#     count = 0
+#     total_gpa = 0
+#
+#     def __init__(self, name, gpa):
+#         self.name = name
+#         self.gpa = gpa
+#         Student.count += 1
+#         Student.total_gpa += gpa
+#
+#         #Instance method
+#     def get_info(self):
+#             return f"{self.name} {self.gpa}"
+#
+#     @classmethod
+#     def get_count(cls):
+#             return f"Total # of students: {cls.count}"
+#     @classmethod
+#     def get_average_gpa(cls):
+#         if cls.count == 0:
+#             return 0
+#         else:
+#             return f"Average gpa: {cls.total_gpa / cls.count:.2f}"
+#
+#
+# student1 = Student("Spongebob", 3.2)
+# student2 = Student("Patrick", 2.0)
+# student3 = Student("Sandy", 4.0)
+# print(Student.get_count())
+# print(Student.get_average_gpa())
+# print(student1.get_info())
+#
+# ---------------------------------------------------------------------------------
+#Magic methods = Dunder methods (double underscore) __init__, __str__, __eq__
+#Authomatically called by many of python's built in operations.
+#They allow developers to define or customize the behavior of objects
+
+# class Book:
+#
+#     def __init__(self, title, author, num_pages):
+#         self.title = title
+#         self.author = author
+#         self.num_pages = num_pages
+#
+#     def __str__(self):
+#         return f"{self.title} by {self.author}"
+#
+#     def __eq__(self, other):
+#         return self.title == other.title and self.author == other.author
+#
+#         #gt = greater than, #add = add
+#     def __lt__(self, other):
+#         return self.num_pages < other.num_pages
+#
+#     def __contains__(self, keyword):
+#         return keyword in self.title or keyword in self.author
+#
+#     def __getitem__(self, key):
+#         if key == "title":
+#             return self.title
+#
+#
+#
+# book1 = Book("The hobbit", "J.R.R. TOlkien", 310)
+# book2 = Book("Harry potter", "J.K. Rowling", 223)
+# book3 = Book("THe lion the witch and the wardrobe", "C.S. Lewis", 172)
+#
+# print(book1)
+# print(book1 == book2)
+# print(book2 < book3)
+# print("lion" in book3)
+#
+# print(book1['title'])
+# ------------------------------------------------------------------------------
+# @property = Decorator used to define a method as a property. (accessed like an attribute)
+#Benefit : Add additional logic when read, write or delete attributes. Gives you getter setter and deleter method.
+#
+# class Rectangle:
+#     def __init__(self, width, height):
+#         self._width = width
+#         self._height = height
+#
+#     @property
+#     def width(self):
+#         return f"{self._width:.1f}cm"
+#
+#     @property
+#     def height(self):
+#         return f"{self._height:.1f}cm"
+#
+#     @width.setter
+#     def width(self, new_width):
+#         if new_width > 0:
+#             self._width = new_width
+#         else:
+#             print("Width must be greater than 0")
+#
+#     @height.setter
+#     def height(self, new_height):
+#         if new_height > 0:
+#             self._width = new_width
+#         else:
+#             print("Height must be greater than 0")
+#
+#     @width.deleter
+#     def width(self):
+#         del self._width
+#         print("width has been deleted")
+#
+#
+# rectangle = Rectangle(3,4)
+#
+# rectangle.width = 89
+# print(rectangle.width, rectangle.height)
+#
+# del rectangle.width
+
+# --------------------------------------------------------------------------------
+
+#Decorator = Function that extends the behavior of another function w/o modifiyig
+#base function. Pass the base function as an argument to the decorator.
+#
+# def add_sprinkles(func):
+#     def wrapper(*args, **kwargs):
+#         print("Added sprinkles")
+#         func(*args, **kwargs)
+#     return wrapper
+#
+# def add_fudge(func):
+#     def wrapper(*args, **kwargs):
+#         print("Fudge added")
+#         func(*args, **kwargs)
+#     return wrapper
+#
+# @add_sprinkles
+# @add_fudge
+# def get_ice_cream(flavor):
+#     print(f"Here's your {flavor} ice cream.")
+#
+# get_ice_cream("vanilla")
+# --------------------------------------------------------------------------
+# exception = An event that interrupts the flow of a PROGRAM----
+# try:
+#     number = int(input("Enter a number: "))
+#     print(1/number)
+# except ZeroDivisionError:
+#     print("You can't divide by zero, FFS")
+# except ValueError:
+#     print("Enter only numbers please")
+# except Exception:
+#     print("Something went wrong")
+# finally:
+#     print("DO some cleanup here")
+# -------------------------------------------------------------------------------
+import os
+import json
+import csv
+#
+# file_path = "file.txt"
+#
+# if os.path.exists(file_path):
+#     print(f"THe location {file_path} exists")
+#
+#     if os.path.isfile(file_path):
+#         print(f"{file_path} is a file")
+#     elif os.path.isdir(file_path):
+#         print("That is a directory")
+# else:
+#     print("Location does not exists")
+# ------------------------------------------------------------------
+
+#python writing files (.txt, .json, .csv)
+
+# employees = {
+#     "name": "Doge",
+#     "age": 30,
+#     "job": "cook"
+# }
+#
+#
+# txt_data = "I like pizza!"
+file_path = "file.csv"
+# try:
+#     with open(file_path, "w") as file:
+#         for employee in employees:
+#             file.write("\n" + employee)
+#             print(f"{employee} was written to {file_path}")
+# except FileExistsError:
+#     print("That file already exists!")
+#
+# try:
+#     with open(file_path, "w") as file:
+#         json.dump(employees, file, indent=4)
+#         print(f"json file {file_path} was created")
+# except FileExistsError:
+#     print("That file already exists!")
+
+employees = [["Name", "Age", "Job"],
+            ["Doge", 25, "unfigo"],
+            ["Buddy", 30, "ASSICURATORE"]]
+try:
+    with open(file_path, "w", newline="") as file:
+        writer = csv.writer(file)
+        for row in employees:
+            writer.writerow(row)
+        print(f"csv file {file_path} was created")
+except FileExistsError:
+    print("That file already exists!")
