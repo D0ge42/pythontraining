@@ -995,54 +995,94 @@ import math
 import os
 import json
 import csv
+# #
+# # file_path = "file.txt"
+# #
+# # if os.path.exists(file_path):
+# #     print(f"THe location {file_path} exists")
+# #
+# #     if os.path.isfile(file_path):
+# #         print(f"{file_path} is a file")
+# #     elif os.path.isdir(file_path):
+# #         print("That is a directory")
+# # else:
+# #     print("Location does not exists")
+# # ------------------------------------------------------------------
 #
-# file_path = "file.txt"
+# #python writing files (.txt, .json, .csv)
 #
-# if os.path.exists(file_path):
-#     print(f"THe location {file_path} exists")
+# # employees = {
+# #     "name": "Doge",
+# #     "age": 30,
+# #     "job": "cook"
+# # }
+# #
+# #
+# # txt_data = "I like pizza!"
+# file_path = "file.csv"
+# # try:
+# #     with open(file_path, "w") as file:
+# #         for employee in employees:
+# #             file.write("\n" + employee)
+# #             print(f"{employee} was written to {file_path}")
+# # except FileExistsError:
+# #     print("That file already exists!")
+# #
+# # try:
+# #     with open(file_path, "w") as file:
+# #         json.dump(employees, file, indent=4)
+# #         print(f"json file {file_path} was created")
+# # except FileExistsError:
+# #     print("That file already exists!")
 #
-#     if os.path.isfile(file_path):
-#         print(f"{file_path} is a file")
-#     elif os.path.isdir(file_path):
-#         print("That is a directory")
+# employees = [["Name", "Age", "Job"],
+#             ["Doge", 25, "unfigo"],
+#             ["Buddy", 30, "ASSICURATORE"]]
+# try:
+#     with open(file_path, "w", newline="") as file:
+#         writer = csv.writer(file)
+#         for row in employees:
+#             writer.writerow(row)
+#         print(f"csv file {file_path} was created")
+# except FileExistsError:
+#     print("That file already exists!")
+# ------------------------------------------------------------------------------
+
+#Python reading files(.txt, .json, .csv)
+
+# file_path = "test.json"
+#
+# try:
+#     with open(file_path, "r") as file:
+#         content = json.load(file)
+#         print(content)
+# except FileNotFoundError:
+#     print("File could not be found")
+# except PermissionError:
+#     print("You do not have permission to read that file")
+# ---------------------------------------------------------------------------------
+# import datetime
+#
+# date = datetime.date(2025, 1, 6)
+# today = datetime.date.today()
+# time1 = datetime.datetime.now()
+# time2 = time1.strftime("%H:%M:%S %d-%m-%Y")
+# target_datetime = datetime.datetime(2020, 1, 6, 12, 30, 1)
+#
+# if target_datetime < time1:
+#     print("Target day has passed")
 # else:
-#     print("Location does not exists")
-# ------------------------------------------------------------------
+#     print("Target date hasn't passed")
+# ----------------------------------------------------------------------------------
 
-#python writing files (.txt, .json, .csv)
+import time
+import datetime
+import pygame
 
-# employees = {
-#     "name": "Doge",
-#     "age": 30,
-#     "job": "cook"
-# }
-#
-#
-# txt_data = "I like pizza!"
-file_path = "file.csv"
-# try:
-#     with open(file_path, "w") as file:
-#         for employee in employees:
-#             file.write("\n" + employee)
-#             print(f"{employee} was written to {file_path}")
-# except FileExistsError:
-#     print("That file already exists!")
-#
-# try:
-#     with open(file_path, "w") as file:
-#         json.dump(employees, file, indent=4)
-#         print(f"json file {file_path} was created")
-# except FileExistsError:
-#     print("That file already exists!")
+def set_alarm(alarm_time):
+    print(f"Alarm set for {alarm_time}")
 
-employees = [["Name", "Age", "Job"],
-            ["Doge", 25, "unfigo"],
-            ["Buddy", 30, "ASSICURATORE"]]
-try:
-    with open(file_path, "w", newline="") as file:
-        writer = csv.writer(file)
-        for row in employees:
-            writer.writerow(row)
-        print(f"csv file {file_path} was created")
-except FileExistsError:
-    print("That file already exists!")
+if __name__ == "__main__":
+    alarm_time = input("Enter alarm time (HH:MM:SS): ")
+    set_alarm(alarm_time)
+
