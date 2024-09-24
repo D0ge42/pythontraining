@@ -1074,15 +1074,303 @@ import csv
 # else:
 #     print("Target date hasn't passed")
 # ----------------------------------------------------------------------------------
+#
+# #multithreading = Used to perform multiple tasks currently (multitaskin)
+# #Good when dealing with I/O bound tasks like reading files or fetching data from APIs
+#
+# import threading
+# import time
+#
+# def walk_dog(first):
+#     time.sleep(8)
+#     print(f"You finish walking the {first}")
+#
+# def take_out_trash():
+#     time.sleep(2)
+#     print("YOU take out the trash")
+#
+# def get_mail():
+#     time.sleep(4)
+#     print("You get the mail")
+#
+# chore1 = threading.Thread(target=walk_dog, args=("Scooby",))
+# chore1.start()
+#
+# chore2 = threading.Thread(target = take_out_trash)
+# chore2.start()
+#
+# chore3 = threading.Thread(target = get_mail)
+# chore3.start()
+#
+# chore1.join()
+# chore2.join()
+# chore3.join()
+#
+# print("All chores are complete!")
+# -----------------------------------------------------------------------------
+# import requests
+#
+# base_url = "https://dog.ceo/api/breeds/image/random"
+# request_data = requests.get(base_url)
+#
+# data = request_data.json()
+# print(data["message"])
+# ------------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
+# from PyQt5.QtGui import QFont
+# from PyQt5.QtCore import Qt
+# from PyQt5.QtGui import QPixmap
+#
+# class MainWindow(QMainWindow): #Inherit from QmainWindow to customize it.
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("COOL GUY")
+#         self.setGeometry(0,0,500,100)
+#
+#         label = QLabel("Hello", self)
+#         label.setFont(QFont("Arial", 30))
+#         label.setGeometry(0,0,500,100)
+#         label.setStyleSheet("color: #ff9500;"
+#                             "background-color: #ffffff;"
+#                             "font-weight: bold;")
+#         label.setAlignment(Qt.AlignCenter | Qt.AlignTop)
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow() #Default behaviour is "Hide"
+#     window.show() #Change behaviour by using show method.
+#     sys.exit(app.exec_()) #Make sure there's a clean exit. Pass as argument app.exec_()
+# if __name__ == "__main__":
+#     main()
+# ------------------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import QApplication,QMainWindow,QLabel
+# from PyQt5.QtGui import QPixmap
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setGeometry(700,300,1920,1080)
+#
+#         label = QLabel(self)
+#         label.setGeometry(0,0,800,800)
+#
+#         pixmap = QPixmap("Foto.png")
+#         label.setPixmap(pixmap)
+#
+#         label.setScaledContents(True)
+#
+#         label.setGeometry((self.width() - label.width()) // 2,
+#                           (self.height() - label.height())//2,
+#                           label.width(),
+#                           label.height())
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == "__main__":
+#     main()
+# ----------------------------------------------------------------------------------------------
+#Layout managers
+# import sys
+# from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel,
+#                              QWidget, QVBoxLayout, QHBoxLayout, QGridLayout)
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setGeometry(700,300,1920,1080)
+#         self.initUI()
+#
+#     def initUI(self):
+#         central_widget = QWidget() #general widget 
+#         self.setCentralWidget(central_widget)#method to make it main widget 
+#
+#         label1 = QLabel("#1", self) #Labels
+#         label2 = QLabel("#2", self)
+#         label3 = QLabel("#3", self)
+#         label4 = QLabel("#4", self)
+#         label5 = QLabel("#5", self)
+#
+#         label1.setStyleSheet("background-color: red;")
+#         label2.setStyleSheet("background-color: blue;")
+#         label3.setStyleSheet("background-color: yellow;")
+#         label4.setStyleSheet("background-color: green;")
+#         label5.setStyleSheet("background-color: purple;")
+#
+#         hbox = QHBoxLayout() #Arrange widgets horizontally. Resize is automatic etc.
+#
+#         hbox.addWidget(label1) #Add widgets to the box layout
+#         hbox.addWidget(label2)
+#         hbox.addWidget(label3)
+#         hbox.addWidget(label4)
+#         hbox.addWidget(label5)
+#
+#         central_widget.setLayout(hbox) #Set layout for central widget
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == "__main__":
+#     main()
+# ----------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLabel
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setGeometry(700,300,500,500)
+#         self.button = QPushButton("Click me!", self)
+#         self.label = QLabel("Hello", self)
+#         self.initUI()
+#
+#     def initUI(self):
+#         self.button.setGeometry(150,200,200,100)
+#         self.button.setStyleSheet("font-size: 30px;")
+#         self.button.clicked.connect(self.onclick) #With button we need a signal connected to a slot.
+#                                                   #Signal is an event, slot is an action that will be taken from widget.
+#         self.label.setGeometry(150, 300, 200, 100)
+#
+#     def onclick(self):
+#         self.label.setText("Goodbye")
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# --------------------------------------------------------------------------------
 
-import time
-import datetime
-import pygame
+# import sys
+# from PyQt5.QtWidgets import QMainWindow, QApplication, QCheckBox
+# from PyQt5.QtCore import Qt
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setGeometry(700,300,500,500)
+#         self.checkbox = QCheckBox("Do you liek pizza?", self)
+#         self.initUI()
+#
+#     def initUI(self):
+#         self.checkbox.setGeometry(10,0,500,100)
+#         self.checkbox.setStyleSheet("font-size: 30px;"
+#                                     "font-family: Arial;")
+#         self.checkbox.stateChanged.connect(self.checkbox_change)
+#
+#     def checkbox_change(self, state):
+#         if state == Qt.Checked:
+#             print("You liek pizza")
+#         else:
+#             print("You don't liek pizza?")
+#
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#--------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import QMainWindow, QApplication, QRadioButton, QButtonGroup
 
-def set_alarm(alarm_time):
-    print(f"Alarm set for {alarm_time}")
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setGeometry(700,300,500,500)
+#         self.radio1 = QRadioButton("Visa",self)
+#         self.radio2 = QRadioButton("Mastercard", self)
+#         self.radio3 = QRadioButton("Gift Card",self)
+#         self.radio4 = QRadioButton("Paypal", self)
+#         self.radio5 = QRadioButton("In-store",self)
+#         self.button_group1 = QButtonGroup(self)
+#         self.button_group2 = QButtonGroup(self)
+#         self.initUI()
+
+#     def initUI(self):
+#         self.radio1.setGeometry(10,0,300,50)
+#         self.radio2.setGeometry(10,30,300,50)
+#         self.radio3.setGeometry(10,60,300,50)
+#         self.radio4.setGeometry(10,90,300,50)
+#         self.radio5.setGeometry(10,120,300,50)
+#         self.setStyleSheet("QRadioButton{"
+#                            "font-size:30px;"
+#                            "padding: 10px;"
+#                             "font-family: Arial;"
+#                             "}")
+
+#         self.button_group1.addButton(self.radio1)
+#         self.button_group1.addButton(self.radio2)
+#         self.button_group1.addButton(self.radio3)
+#         self.button_group2.addButton(self.radio4)
+#         self.button_group2.addButton(self.radio5)
+
+#         self.radio1.toggled.connect(self.radio_button_changed)
+#         self.radio2.toggled.connect(self.radio_button_changed)
+#         self.radio3.toggled.connect(self.radio_button_changed)
+#         self.radio4.toggled.connect(self.radio_button_changed)
+#         self.radio5.toggled.connect(self.radio_button_changed)
+
+#     def radio_button_changed(self):
+#         radio_button = self.sender()
+#         if radio_button.isChecked():
+#             print(f"{radio_button.text()} is selected")
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+# ----------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QPushButton
+
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setGeometry(700,300,500,500)
+#         self.line_edit = QLineEdit(self)
+#         self.button = QPushButton("Submit",self)
+#         self.initUI()
+
+
+#     def initUI(self):
+#         self.line_edit.setGeometry(10,10,200,40)
+#         self.line_edit.setStyleSheet("font-size: 25px")
+#         self.button.setGeometry(10,50, 200, 40)
+#         self.button.clicked.connect(self.submit)
+#         self.line_edit.setPlaceholderText("Enter your name")
+
+#     def submit(self):
+#         text = self.line_edit.text()
+#         print(text)
+
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+# ------------------------------------------------------------------------
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
+from PyQt5.QtCore import QTimer, QTime, Qt
+
+class DigitalClock(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        pass
 
 if __name__ == "__main__":
-    alarm_time = input("Enter alarm time (HH:MM:SS): ")
-    set_alarm(alarm_time)
-
+    app = QApplication(sys.argv)
+    clock = DigitalClock()
+    clock.show()
+    sys.exit(app.exec_())
